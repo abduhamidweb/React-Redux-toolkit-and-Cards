@@ -68,6 +68,9 @@ const NavbarTop = () => {
           <div class='d-flex align-items-center'>
             <a class='text-reset me-3' onClick={handlermodal}>
               <i class='fas fa-shopping-cart'></i>
+              <span class='badge rounded-pill badge-notification bg-danger'>
+                {filterCard.length}
+              </span>
             </a>
             <div class='dropdown'>
               <a
@@ -136,9 +139,7 @@ const NavbarTop = () => {
                   </a>
                 </li>
                 <li>
-                  <a class='dropdown-item' href='#'>
-                    Logout
-                  </a>
+                  <a class='dropdown-item'>Logout</a>
                 </li>
               </ul>
             </div>

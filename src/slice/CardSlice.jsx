@@ -28,7 +28,35 @@ const initialState = [
     like: false,
     saved: false,
   },
-];
+  {
+    id: 3,
+    title: 'Hello world!',
+    descrbtion: "this is the first time you're doing something... ",
+    imgURL: 'https://picsum.photos/400/400',
+    reaction: {
+      smail: 0,
+      worrid: 0,
+      stupit: 0,
+      angry: 0,
+    },
+    like: false,
+    saved: false,
+  },
+  {
+    id: 4,
+    title: 'Hello world!',
+    descrbtion: "this is the first time you're doing something... ",
+    imgURL: 'https://picsum.photos/400/400',
+    reaction: {
+      smail: 0,
+      worrid: 0,
+      stupit: 0,
+      angry: 0,
+    },
+    like: false,
+    saved: false,
+  },
+]
 const postSlice = createSlice({
   name: 'posts',
   initialState,
