@@ -1,0 +1,10 @@
+.reaction {
+  display: flex;
+  justify-content: space-between;
+}
+.reaction span {
+  cursor: pointer;
+}
+.reaction span:hover i {
+  color: rgba(0, 0, 0, 0.623);
+}
