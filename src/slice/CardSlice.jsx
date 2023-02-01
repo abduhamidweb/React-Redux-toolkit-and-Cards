@@ -28,14 +28,10 @@ const initialState = [
     like: false,
     saved: false,
   },
-]
-const checkTrueOrFalse = {
-  modal: false,
-}
+];
 const postSlice = createSlice({
   name: 'posts',
   initialState,
-  checkTrueOrFalse,
   reducers: {
     postAdded: (state, action) => {
       state.push(action.payload)
@@ -61,9 +57,6 @@ const postSlice = createSlice({
           }
         })
       }
-    },
-    toggledModal: (state, action) => {
-      state.modal = true
     },
   },
 })

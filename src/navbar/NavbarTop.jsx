@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { increment } from '../slice/checkmodal'
+import { selectAllPosts } from '../slice/CardSlice'
+import './style.css'
+import Cards from '../card/Cards'
 const NavbarTop = () => {
-  // const modal = useSelector((state) => state);
-  // console.log(modal);
-  // const dispatch = useDispatch()
+  const { modal } = useSelector((state) => state.counter)
+  const dispach = useDispatch()
+  const filterCards = useSelector(selectAllPosts)
+  let filterCard = filterCards.length
+    ? filterCards.filter((item) => item.saved == true)
+    : null
+  const renderCard = filterCard
+    ? filterCard.map((item) => <Cards data={item} />)
+    : null
 
+  const handlermodal = () => {
+    dispach(increment())
+  }
+  const handlerCloseModal = () => {
+    dispach(increment())
+  }
   return (
     <>
       <nav class='navbar navbar-expand-lg navbar-light bg-light'>
@@ -50,10 +66,9 @@ const NavbarTop = () => {
           </div>
 
           <div class='d-flex align-items-center'>
-            <a class='text-reset me-3' href='#'>
+            <a class='text-reset me-3' onClick={handlermodal}>
               <i class='fas fa-shopping-cart'></i>
             </a>
-
             <div class='dropdown'>
               <a
                 class='text-reset me-3 dropdown-toggle hidden-arrow'
@@ -130,6 +145,25 @@ const NavbarTop = () => {
           </div>
         </div>
       </nav>
+      <div className='container'>
+        {modal ? (
+          <div id='myModal' class='modal'>
+            <div class='modal-content'>
+              <span class='close' onClick={handlerCloseModal}>
+                &times;
+              </span>
+              <div className='row'>
+                {' '}
+                {filterCard.length > 0 ? (
+                  renderCard
+                ) : (
+                  <h3 className='text-center'>Sizda hali sotib olganiz yo'q</h3>
+                )}
+              </div>
+            </div>
+          </div>
+        ) : null}
+      </div>
     </>
   )
 }
