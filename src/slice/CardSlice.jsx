@@ -89,5 +89,11 @@ const postSlice = createSlice({
   },
 })
 export const selectAllPosts = (state) => state.posts
-export const { postAdded, toggledLike, removeDeleteCard, savedAdd, toggledModal }=postSlice.actions
+export const {
+  postAdded,
+  toggledLike,
+  removeDeleteCard,
+  savedAdd,
+  toggledModal,
+} = postSlice.actions
 export default postSlice.reducer
